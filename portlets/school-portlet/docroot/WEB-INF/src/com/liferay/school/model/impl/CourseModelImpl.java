@@ -75,7 +75,7 @@ public class CourseModelImpl extends BaseModelImpl<Course>
 			{ "department", Types.VARCHAR },
 			{ "prereqs", Types.VARCHAR }
 		};
-	public static final String TABLE_SQL_CREATE = "create table SCH_Course (courseId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,courseCode VARCHAR(75) null,name VARCHAR(75) null,description VARCHAR(75) null,level INTEGER,department VARCHAR(75) null,prereqs VARCHAR(75) null)";
+	public static final String TABLE_SQL_CREATE = "create table SCH_Course (courseId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,courseCode VARCHAR(75) null,name VARCHAR(400) null,description STRING null,level INTEGER,department VARCHAR(75) null,prereqs STRING null)";
 	public static final String TABLE_SQL_DROP = "drop table SCH_Course";
 	public static final String ORDER_BY_JPQL = " ORDER BY course.courseCode ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY SCH_Course.courseCode ASC";

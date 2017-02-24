@@ -1,6 +1,12 @@
 <?xml version="1.0"?>
 
 <model-hints>
+	<hint-collection name="LONG">
+		<hint name="max-length">4000</hint>
+	</hint-collection>
+	<hint-collection name="NAME">
+		<hint name="max-length">400</hint>
+	</hint-collection>
 	<model name="com.liferay.school.model.Course">
 		<field name="courseId" type="long" />
 		<field name="groupId" type="long" />
@@ -10,10 +16,16 @@
 		<field name="createDate" type="Date" />
 		<field name="modifiedDate" type="Date" />
 		<field name="courseCode" type="String" />
-		<field name="name" type="String" />
-		<field name="description" type="String" />
+		<field name="name" type="String">
+			<hint-collection name="NAME" />
+		</field>
+		<field name="description" type="String">
+			<hint-collection name="LONG" />
+		</field>
 		<field name="level" type="int" />
 		<field name="department" type="String" />
-		<field name="prereqs" type="String" />
+		<field name="prereqs" type="String">
+			<hint-collection name="LONG" />
+		</field>
 	</model>
 </model-hints>

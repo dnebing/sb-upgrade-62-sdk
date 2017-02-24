@@ -7,9 +7,9 @@ create table SCH_Course (
 	createDate DATE null,
 	modifiedDate DATE null,
 	courseCode VARCHAR(75) null,
-	name VARCHAR(75) null,
-	description VARCHAR(75) null,
+	name VARCHAR(400) null,
+	description STRING null,
 	level INTEGER,
 	department VARCHAR(75) null,
-	prereqs VARCHAR(75) null
+	prereqs STRING null
 );

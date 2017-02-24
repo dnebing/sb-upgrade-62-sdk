@@ -14,8 +14,48 @@
  */
 %>
 
+<%@ page import="java.util.*" %>
+<%@ page import="com.liferay.school.model.*" %>
+<%@ page import="com.liferay.school.service.*" %>
+
 <%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
+
+<%@ taglib uri="http://liferay.com/tld/aui" prefix="aui" %>
+<%@ taglib uri="http://liferay.com/tld/portlet" prefix="liferay-portlet" %>
+<%@ taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %>
+<%@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
+
+<liferay-theme:defineObjects />
 
 <portlet:defineObjects />
 
-This is the <b>Course List</b> portlet.
+<%
+	// get the list of courses using the school service.
+	
+	List<Course> courses = CourseLocalServiceUtil.listAllCourses();
+
+	if (courses == null) {
+		courses = new ArrayList<Course>();
+	}
+	
+	int courseCount = courses.size();
+%>
+<h3>Courses</h3>
+<p>Count: <%= courseCount %></p>
+
+<table class="table table-striped">
+	<thead><tr>
+		<th>Course</th>
+		<th>Name</th>
+	</tr></thead>
+	<tbody>
+	<%
+		for (Course course : courses) {
+	%>
+	<tr><td ><%= course.getCourseCode() %></td>
+		<td ><%= course.getName() %></td></tr>
+	<%
+		}
+	%>
+	</tbody>
+</table>
